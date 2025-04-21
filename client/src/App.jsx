@@ -6,7 +6,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/codeblocks")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/codeblocks`)
       .then((res) => res.json())
       .then((data) => setCodeBlocks(data))
       .catch((err) => console.error("Failed to load code blocks:", err));

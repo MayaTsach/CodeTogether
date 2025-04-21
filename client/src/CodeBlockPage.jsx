@@ -7,6 +7,7 @@ import { EditorView } from "@codemirror/view";
 import { autocompletion } from "@codemirror/autocomplete";
 import "./CodeBlockPage.css";
 
+
 export default function CodeBlockPage() {
   const { id } = useParams();
   const socketRef = useRef(null); 
@@ -21,6 +22,7 @@ export default function CodeBlockPage() {
   const [mentorMessage, setMentorMessage] = useState("");
   const [messageInput, setMessageInput] = useState("");
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
  
   
@@ -49,12 +51,12 @@ export default function CodeBlockPage() {
   useEffect(() => {
     if (!askedName) return; // Don't run if name not asked yet
 
-    socketRef.current = io("http://localhost:5000");  // Create socket 
+    socketRef.current = io(backendUrl);  // Create socket 
 
     socketRef.current.emit("joinRoom", { roomId: id, name });
     
     // Fetch code block
-    fetch(`http://localhost:5000/api/codeblocks/${id}`)
+    fetch(`${backendUrl}/api/codeblocks/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCodeBlock(data);

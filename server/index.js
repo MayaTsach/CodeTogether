@@ -10,7 +10,13 @@ const io = new Server(server, {
   cors: { origin: "*" }
 });
 
-app.use(cors());
+app.use(cors({
+  origin:  [
+    "http://localhost:5173",
+    "https://your-vercel-app-name.vercel.app"
+  ], 
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes

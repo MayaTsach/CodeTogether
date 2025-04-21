@@ -56,7 +56,7 @@ export default function CodeBlockPage() {
     socketRef.current.emit("joinRoom", { roomId: id, name });
     
     // Fetch code block
-    fetch(`${backendUrl}/api/codeblocks/${id}`)
+    fetch(`${backendUrl}/api/codeblocks/`)
       .then((res) => res.json())
       .then((data) => {
         setCodeBlock(data);

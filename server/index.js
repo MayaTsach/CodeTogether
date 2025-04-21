@@ -13,8 +13,8 @@ const io = new Server(server, {
 app.use(cors({
   origin:  [
     "http://localhost:5173",
-    "https://code-together-bay.vercel.app"
-  ], 
+    "https://code-together-69ati5drc-mayatsachs-projects.vercel.app"
+   ], 
   methods: ["GET", "POST"],
   credentials: true
 }));

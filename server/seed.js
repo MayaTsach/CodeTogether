@@ -38,13 +38,24 @@ const codeBlocks = [
   {
     title: "Reverse String",
     instructions: "Write a function that returns the reversed version of a string.",
-    initialCode: `function reverse(str) {
-
-}`,
+    initialCode: `function reverse(str) {}`,
     solutionCode: `function reverse(str) {
   return str.split('').reverse().join('');
 }`
+  },
+  {
+    title: "Sum of Digits",
+    instructions: "Write a function that returns the sum of all digits in a number.",
+    initialCode: `function sumDigits(n) {\n\n}`,
+    solutionCode: `function sumDigits(n) {\n  return n.toString().split('').reduce((sum, d) => sum + Number(d), 0);\n}`
+  },
+  {
+    title: "Check Prime Number",
+    instructions: "Write a function that returns true if a number is prime, otherwise false.",
+    initialCode: `function isPrime(n) {\n\n}`,
+    solutionCode: `function isPrime(n) {\n  if (n < 2) return false;\n  for (let i = 2; i <= Math.sqrt(n); i++) {\n    if (n % i === 0) return false;\n  }\n  return true;\n}`
   }
+
 ];
 
 async function seedDB() {
